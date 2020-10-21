@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon</title>
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.min.css">
+    <script src="lib/onsen/js/onsenui.min.js"></script>
+</head>
+
+<body>
+    <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+            <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>
+                        Accueil
+                    </ons-list-item>
+                    <ons-list-item onclick="fn.load('add.html')" tappable>
+                        Nouveau
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+    </ons-splitter>
+
+    <ons-template id="home.html">
+        <ons-page id="home">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Tous les projets
+                </div>
+            </ons-toolbar>
+            <ons-list id="ProjectList">
+                <ons-list-item>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="#">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">Projet A</span><span class="list-item__subtitle">keyta
+                            koula...</span>
+                    </div>
+                </ons-list-item>
+                <ons-list-item>
+                    <div class="left">
+                        <img class="list-item__thumbnail" src="#">
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">Projet B</span><span class="list-item__subtitle">André
+                            Marc</span>
+                    </div>
+                </ons-list-item>
+            </ons-list>
+            <ons-fab position="bottom right" onclick="fn.load('add.html')">
+                <ons-icon icon="md-plus"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="add.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Nouveau
+                </div>
+            </ons-toolbar>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p>
+                    <ons-input id="nom" modifier="underbar" placeholder="Nom" float style="width: 70%;"></ons-input>
+                </p>
+                <p>
+                    <ons-input id="prenom" modifier="underbar" placeholder="Prénom" float style="width: 70%;">
+                    </ons-input>
+                </p>
+                <p>
+                    <ons-input id="titre" modifier="underbar" placeholder="Titre du projet" float style="width: 70%;">
+                    </ons-input>
+                </p>
+                <textarea id="desc" class="textarea" rows="6" placeholder="Description du projet"
+                    style="width: 70%;"></textarea>
+                <p style="margin-top: 30px;">
+                    <ons-button onclick="addProject()">Enregistrer</ons-button>
+                </p>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <ons-template id="detail.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Détails
+                </div>
+            </ons-toolbar>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <ons-list modifier="inset" id="projectTitle">
+                    <ons-list-header></ons-list-header>
+                    <ons-list-item modifier="longdivider">Item A</ons-list-item>
+                </ons-list>
+            </div>
+            <br />
+            <div style="height: 200px; padding: 1px 0 0 0;">
+                <div class="card card--material" id="projectContent">
+                    <div class="card__title card--material__title">Card Title</div>
+                    <div class="card__content card--material__content">Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                </div>
+            </div>
+        </ons-page>
+    </ons-template>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
